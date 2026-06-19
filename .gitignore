@@ -1,0 +1,17 @@
+# Credentials & tokens - NU uploada pe GitHub!
+auth/client_secret.json
+auth/token.pickle
+
+# Baza de date cu date personale
+db/youtube_analytics.db
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# OS
+.DS_Store
+Thumbs.db
