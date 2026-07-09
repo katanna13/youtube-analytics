@@ -1,13 +1,47 @@
+# ── Stage 1: Build React Frontend ────────────────────────────────────────────
+FROM node:20-slim AS frontend-build
+
+WORKDIR /app/frontend
+
+COPY frontend/package*.json ./
+RUN npm install --silent
+
+COPY frontend/ ./
+ENV REACT_APP_API_URL=http://localhost:8000
+RUN npm run build
+
+# ── Stage 2: Python Backend + Serve Frontend ──────────────────────────────────
 FROM python:3.10-slim
 
 WORKDIR /app
 
+# Install Python dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY dashboard.py .
+# Copy backend files
+COPY api.py .
+COPY features.py .
+COPY insights_engine.py .
+COPY auth/ ./auth/
 COPY db/ ./db/
 
-EXPOSE 8501
+# Copy React build from Stage 1
+COPY --from=frontend-build /app/frontend/build ./frontend/build
 
-CMD ["streamlit", "run", "dashboard.py", "--server.port=8501", "--server.address=0.0.0.0"]
+# Install serve for React static files
+RUN pip install --no-cache-dir aiofiles
+
+# Environment
+ENV FIREWORKS_API_KEY=""
+ENV PYTHONUNBUFFERED=1
+
+# Expose ports
+EXPOSE 8000
+EXPOSE 3000
+
+# Start script
+COPY start.sh .
+RUN chmod +x start.sh
+
+CMD ["./start.sh"]
