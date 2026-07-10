@@ -2,7 +2,7 @@
 
 > AI-powered YouTube channel analysis that turns real channel data into actionable growth strategies — powered by Gemma 4 via Fireworks AI on AMD infrastructure.
 
-**AMD Developer Hackathon ACT II · Track 3 Unicorn · Best Use of Gemma 4**
+
 
 ---
 
@@ -241,4 +241,3 @@ youtube-analytics/
 
 ---
 
-Built by **Mihai Catana** · AMD Developer Hackathon ACT II · Track 3 Unicorn
