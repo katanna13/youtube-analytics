@@ -7,7 +7,7 @@ COPY frontend/package*.json ./
 RUN npm install --silent
 
 COPY frontend/ ./
-ENV REACT_APP_API_URL=http://localhost:8000
+
 RUN npm run build
 
 # ── Stage 2: Python Backend + Serve Frontend ──────────────────────────────────
