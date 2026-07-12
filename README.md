@@ -2,7 +2,6 @@
 
 > An AI-powered YouTube analytics product that turns real channel data into clear, actionable growth decisions.
 
-**AMD Developer Hackathon: ACT II · Track 3 — Unicorn Track**
 
 ---
 
