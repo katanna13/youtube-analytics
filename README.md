@@ -451,4 +451,4 @@ Then test at least one AI-powered operation from the frontend.
 **Mihai Catana**
 
 Built for the **AMD Developer Hackathon: ACT II — Track 3, Unicorn Track**.
->>>>>>> 653e971 (Finalize Groq integration and hackathon submission)
+
