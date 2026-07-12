@@ -268,7 +268,9 @@ def thumbnail_from_title(body: ThumbnailFromTitleRequest):
         return {"status": "ok", "title": body.title, "thumbnail": thumb}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-
+@app.get("/healthz")
+def healthz():
+    return {"status": "ok"}
 
 @app.post("/ml-predict")
 def ml_predict(body: MLPredictRequest):
@@ -344,9 +346,33 @@ def ml_metrics():
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+FRONTEND_DIR = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),
+    "frontend",
+    "build"
+)
 
+app.mount(
+    "/static",
+    StaticFiles(directory=os.path.join(FRONTEND_DIR, "static")),
+    name="static"
+)
+
+@app.get("/{full_path:path}", include_in_schema=False)
+def serve_react(full_path: str):
+    requested_file = os.path.join(FRONTEND_DIR, full_path)
+
+    if full_path and os.path.isfile(requested_file):
+        return FileResponse(requested_file)
+
+    return FileResponse(os.path.join(FRONTEND_DIR, "index.html"))
 
 # ── 7. Start ──────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+
+    uvicorn.run(
+        app,
+        host="0.0.0.0",
+        port=int(os.getenv("PORT", 8000))
+    )rt=8000)
