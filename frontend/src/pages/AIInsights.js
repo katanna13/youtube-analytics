@@ -66,13 +66,13 @@ export default function AIInsights() {
   return (
     <div>
       <div className="page-title">💡 AI Insights</div>
-      <div className="page-subtitle">Powered by Gemma 4 via Fireworks AI · Results cached for 24h</div>
+      <div className="page-subtitle">Powered by Llama via Groq · Results cached for 24h</div>
 
       {/* ── Next Video Ideas ── */}
       <div className="card">
         <div className="section-title">🎬 Next Video Ideas</div>
         <div style={{ color: '#aaa', fontSize: '0.85rem', marginBottom: 16 }}>
-          Based on your top performing videos — Gemma 4 analyzes your channel's niche and style
+          Based on your top performing videos — Llama analyzes your channel's niche and style
         </div>
         <button className="btn-primary" onClick={fetchNextIdeas} disabled={loadingIdeas} style={{ marginBottom: 16 }}>
           {loadingIdeas
@@ -177,7 +177,7 @@ export default function AIInsights() {
         <div className="section-title">⏰ Upload Strategy</div>
         <button className="btn-primary" onClick={fetchStrategy} disabled={loadingStrategy} style={{ marginBottom: 16 }}>
           {loadingStrategy
-            ? <><div className="spinner" style={{ width: 16, height: 16 }} />Asking Gemma 4...</>
+            ? <><div className="spinner" style={{ width: 16, height: 16 }} />Asking LLamma...</>
             : '🤖 Generate Upload Strategy'}
         </button>
 

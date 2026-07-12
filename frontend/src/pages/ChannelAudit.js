@@ -48,7 +48,7 @@ export default function ChannelAudit() {
   return (
     <div>
       <div className="page-title">📈 Channel Audit</div>
-      <div className="page-subtitle">Complete channel health check powered by Gemma 4</div>
+      <div className="page-subtitle">Complete channel health check powered by Llama</div>
 
       {/* Full Audit */}
       <div className="card">

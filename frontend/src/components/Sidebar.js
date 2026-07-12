@@ -17,7 +17,7 @@ export default function Sidebar({ activePage, onNavigate }) {
         <span className="logo-icon">▶</span>
         <div>
           <div className="logo-title">Growth <span>Copilot</span></div>
-          <div className="logo-sub">Powered by Gemma 4</div>
+          <div className="logo-sub">Powered by Llama</div>
         </div>
       </div>
 

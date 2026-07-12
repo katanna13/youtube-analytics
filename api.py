@@ -159,9 +159,9 @@ def root():
     return {
         "name": "YouTube Growth Copilot API",
         "version": "1.0.0",
-        "model": "Gemma 4 via Fireworks AI",
+        "provider": "Groq",
+        "model": "llama-3.3-70b-versatile",
     }
-
 
 @app.get("/patterns")
 def get_patterns():
