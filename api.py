@@ -10,7 +10,8 @@ import time
 import numpy as np
 import pandas as pd
 import warnings
-
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 warnings.filterwarnings("ignore")
 
 from fastapi import FastAPI, HTTPException, Query
@@ -154,7 +155,7 @@ class MLPredictRequest(BaseModel):
 
 # ── 6. Endpoints ──────────────────────────────────────────────────────────────
 
-@app.get("/")
+@app.get("/api-info")
 def root():
     return {
         "name": "YouTube Growth Copilot API",
