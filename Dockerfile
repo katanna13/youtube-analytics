@@ -33,7 +33,8 @@ COPY --from=frontend-build /app/frontend/build ./frontend/build
 RUN pip install --no-cache-dir aiofiles
 
 # Environment
-ENV FIREWORKS_API_KEY=""
+ENV GROQ_API_KEY=""
+ENV GROQ_MODEL="llama-3.3-70b-versatile"
 ENV PYTHONUNBUFFERED=1
 
 # Expose ports
