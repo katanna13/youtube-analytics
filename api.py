@@ -36,7 +36,7 @@ from insights_engine import (
 # ── 2. App + CORS ─────────────────────────────────────────────────────────────
 app = FastAPI(
     title="YouTube Growth Copilot API",
-    description="AI-powered YouTube channel analysis using Gemma 4 via Fireworks AI",
+    description="AI-powered YouTube channel analysis using Llama via Groq",
     version="1.0.0",
 )
 
